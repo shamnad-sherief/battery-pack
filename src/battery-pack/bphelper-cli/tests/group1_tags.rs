@@ -27,8 +27,8 @@ fn unwrap_bp_command(cli: bphelper_cli::Cli) -> Option<bphelper_cli::BpCommands>
 fn bare_cargo_bp_produces_none_command() {
     // `cargo bp` with no subcommand should parse successfully with command = None.
     // At runtime, main() uses this to launch the TUI (if terminal) or bail.
-    let cli = bphelper_cli::Cli::try_parse_from(["cargo", "bp"])
-        .expect("bare `cargo bp` should parse");
+    let cli =
+        bphelper_cli::Cli::try_parse_from(["cargo", "bp"]).expect("bare `cargo bp` should parse");
     assert!(
         unwrap_bp_command(cli).is_none(),
         "bare `cargo bp` should produce command: None"
